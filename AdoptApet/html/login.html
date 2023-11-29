@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>登录</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <meta name="content-type"; charset="UTF-8">
+</head>
+<body>
+    <div id="bigBox">
+        <h1>Login</h1>
+
+        <form id="loginform" action="../login.php" method="post">
+            <div class="inputBox">
+                <div class="inputText">
+                    <input type="text" id="account" name="account" placeholder="Account">
+                </div>
+                <div class="inputText">
+                <input type="password" id="password" name="password" placeholder="Password">
+                </div>
+                <br>
+            </div>
+            <div>
+                <input type="submit" id="login" name="login" value="登录" class="loginButton m-left">
+                <a href="register.html"><input type="button" id="register" name="register" value="注册" class="loginButton"></a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>注册</title>
+    <link rel="stylesheet" href="../css/register.css">
+    <meta name="content-type"; charset="UTF-8">
+</head>
+<body>
+    <div id="bigBox">
+        <h1>Register</h1>
+
+        <form action="../register.php" method="post">
+            <div class="inputBox">
+                <div class="inputText">
+                    <input type="text" id="account" name="account" required="required" placeholder="Account">
+                </div>
+                <div class="inputText">
+                    <input type="password" id="password" name="password" required="required" placeholder="Password">
+                </div>
+                <div class="inputText">
+                    <input type="password" id="re_password" name="re_password" required="required" placeholder="PasswordAgain">
+                </div>
+                <div class="inputText">
+                    <input type="text" id="name" name="name" required="required" placeholder="Name">
+                </div>
+                <div class="inputText">
+                    <input type="number" min="0" max="120" id="age" name="age" required="required" placeholder="Age">
+                </div>
+                <div class="inputText m-plc" style="color: white;opacity: 70%">Sex：
+                    <input type="radio" id="sex" name="sex" value="M" style="color: white">男
+                    <input type="radio" id="sex" name="sex" value="F" style="color: white">女
+                </div>
+                <div class="inputText">
+                    <input type="text" id="phone" name="phone" required="required" placeholder="Phone">
+                </div>
+                <div class="inputText">
+                    <input type="email" id="email" name="email" required="required" placeholder="Email">
+                </div>
+                <div class="inputText">
+                    <input type="text" id="address" name="address" required="required" placeholder="Address">
+                </div>
+                <br>
+            </div>
+            <div>
+                <input type="submit" id="register" name="register" value="注册" class="loginButton m-left">
+                <input type="reset" id="reset" name="reset" value="重置" class="loginButton">
+            </div>
+
+            <div class="login">
+            <a href="login.html" style="color: white">已有账号，去登录</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

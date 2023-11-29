@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/bg.jpg");   
+    background-repeat: no-repeat;  
+    background-size: cover;
+}
+
+#bigBox {
+    margin: 0 auto; 
+    margin-top: 170px; 
+    padding: 20px 50px; 
+    background-color: #00000090;   
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;   
+    text-align: center;
+}
+#bigBox h1 {
+    color: white; 
+    font-family: "Comic Sans MS";
+}
+#bigBox .inputBox {
+    margin-top: 20px;  
+}
+#bigBox .inputBox .inputText {
+    margin-top: 20px;  
+}
+#bigBox .inputBox .inputText input {
+    border: 0;  
+    padding: 10px 10px; 
+    border-bottom: 1px solid white; 
+    background-color: #00000000;   
+    color: white;   
+}
+#bigBox .loginButton {
+    margin-right: 30px;
+    margin-top: 40px; 
+    width: 100px;
+    height: 25px;
+    color: white;  
+    border: 0;
+    border-radius: 20px;   
+    background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #656fda 0%, #6ca1cf 33%, #60bfee 66%, #60eecf 100%);    
+}
+
+.m-left {
+    margin-left: 30px;
+}

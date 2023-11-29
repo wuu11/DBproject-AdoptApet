@@ -1,0 +1,88 @@
+body {
+    display: grid;
+    place-items: center;
+}
+  
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #06bbf8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 150px;
+    text-decoration: none;
+}
+.header .logo {
+    color: white;
+    padding: 0 1rem;
+    text-decoration: none;
+}
+  
+.navbar ul{
+    display: flex;
+}
+.navbar ul li{
+    font-weight: bold;
+    width: 128px;
+    list-style: none;
+    text-align:center;
+}
+.navbar ul li a {
+    width: 128px;
+    line-height: 40px;
+    font-size: 1.7rem;
+    color: white;
+    text-decoration: none;
+}
+.navbar ul li a:hover{
+    color: #d2d2fb;
+}
+
+.container {
+    margin-top: 30px;
+    width: 900px;
+    height: 150px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 18px;
+    backdrop-filter: blur(3px);
+    background-color: rgba(0, 191, 255, 0.475);
+    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px;
+    border: 3px rgba(255,255,255,0.4) solid;
+    border-bottom: 3px rgba(40,40,40,0.35) solid;
+    border-right: 3px rgba(40,40,40,0.35) solid;
+    text-align: center;
+}
+
+.title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.info {
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    font-style: italic;
+    line-height: 1.35;
+}
+
+.btn {
+   
+    flex-shrink: 0;
+    width: 60px;
+    height: 30px;
+    border-color: aliceblue;
+}
+  
+.circle {
+    border-radius: 64px;
+    background: #7de3c8;
+}
