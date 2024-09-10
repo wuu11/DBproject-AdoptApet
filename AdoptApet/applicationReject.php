@@ -13,8 +13,7 @@ if (isset($_SESSION['user']) && $_SESSION['role'] == 1) {
     $sql_update = "UPDATE application SET state = '2', administrator_id = '$administrator', process_time = NOW() WHERE application_id = '$application'";
     mysqli_query($conn, $sql_update);
     mysqli_close($conn);
-echo "<script>history.go(-1);</script>";
+    echo "<script>history.go(-1);</script>";
 } else {
     echo "<script>alert('请先登录！');location='html/login.html'</script>";
 }
-?>

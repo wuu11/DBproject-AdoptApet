@@ -7,6 +7,7 @@
     <meta name="content-type"; charset="UTF-8">
 </head>
 <body>
+    <div class="loader"></div>
     <div class="header">
         <a href="allApplication.php" class="logo">
             <h1>Adopt A Pet</h1>
@@ -17,7 +18,6 @@
                 <li><a href="allApplication.php">申请列表</a></li>
                 <li><a href="adoptRecord.php">领养记录</a></li>
                 <li><a href="reviewRecord.php">回访记录</a></li>
-                <li><a href="userAdmin.php">用户管理</a></li>
             </ul>
         </nav>
     </div>
@@ -34,8 +34,8 @@
         while ($row = mysqli_fetch_array($ret)) { ?>
             <div class="container">
                 <h2 class="title">#<?php echo $row['application_id']?></h2>
-                <p class="info">申请人：#<?php echo $row['user_id']?>  <?php echo $row['full_name']?>  <?php echo $row['phone']?><br>
-                宠物：#<?php echo $row['pet_id']?>  <?php echo $row['nickname']?>  <?php echo $row['variety_name']?><br>发起时间：<?php echo $row['propose_time']?><br>
+                <p class="info">申请人：#<?php echo $row['user_id']?>&nbsp;&nbsp;<?php echo $row['full_name']?>&nbsp;&nbsp;<?php echo $row['phone']?><br>
+                申请领养宠物：#<?php echo $row['pet_id']?>&nbsp;&nbsp;<?php echo $row['nickname']?>&nbsp;&nbsp;<?php echo $row['variety_name']?><br>发起时间：<?php echo $row['propose_time']?><br>
                 状态：<?php switch ($row['state']) {
                             case 0:
                                 echo "未处理";
@@ -46,12 +46,15 @@
                             case 2:
                                 echo "已驳回";
                                 break;
+                            case 3:
+                                echo "已撤销";
+                                break;
                         }?><br>
                 处理人：管理员#<?php echo $row['administrator_id']?> 处理时间：<?php echo $row['process_time']?><br></p>
                 <?php
                 if ($row['state'] == 0) { ?>
-                    <button type="button" class="btn circle" onclick="approve(<?php echo $row['application_id']?>)">批准</button>
-                    <button type="button" class="btn circle" onclick="reject(<?php echo $row['application_id']?>)">驳回</button>
+                    <button type="button" class="btn m-left" onclick="approve(<?php echo $row['application_id']?>)">批准</button>
+                    <button type="button" class="btn m-right" onclick="reject(<?php echo $row['application_id']?>)">驳回</button>
                 <?php } ?>
             </div>
         <?php }
@@ -61,6 +64,13 @@
     } ?>
 
     <script type="text/javascript">
+        /*--------- Loader ----------*/
+        $(window).on("load", function () {
+            $('.loader').fadeOut(1500, function () {
+                $(this).remove();
+            });
+        });
+
         function approve(application) {
             $.ajax({
                 type:"POST",

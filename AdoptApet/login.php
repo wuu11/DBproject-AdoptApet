@@ -29,4 +29,3 @@ if (!empty($account) && !empty($password)) {
 } else { 
     echo "<script>alert('账号或密码为空！');location='html/login.html'</script>";
 }
-?>

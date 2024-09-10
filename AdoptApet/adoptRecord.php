@@ -3,9 +3,11 @@
 <head>
     <title>领养记录</title>
     <link rel="stylesheet" href="css/application.css">
+    <script src="js/jquery-3.7.1.min.js" type="text/javascript"></script>
     <meta name="content-type"; charset="UTF-8">
 </head>
 <body>
+    <div class="loader"></div>
     <div class="header">
         <a href="adoptRecord.php" class="logo">
             <h1>Adopt A Pet</h1>
@@ -16,7 +18,6 @@
                 <li><a href="allApplication.php">申请列表</a></li>
                 <li><a href="adoptRecord.php">领养记录</a></li>
                 <li><a href="reviewRecord.php">回访记录</a></li>
-                <li><a href="userAdmin.php">用户管理</a></li>
             </ul>
         </nav>
     </div>
@@ -33,12 +34,24 @@
             <div class="container">
                 <h2 class="title">#<?php echo $row['adopt_id']?></h2>
                 <p class="info">领养人姓名：<?php echo $row['full_name']?><br>领养人联系电话：<?php echo $row['phone']?><br>领养人地址：<?php echo $row['personal_address']?><br>
-                领养宠物：#<?php echo $row['pet_id']?>  <?php echo $row['nickname']?>  <?php echo $row['variety_name']?><br>领养时间：<?php echo $row['adopt_time']?></p>
+                领养宠物：#<?php echo $row['pet_id']?>&nbsp;&nbsp;<?php echo $row['nickname']?>&nbsp;&nbsp;<?php echo $row['variety_name']?><br>领养时间：<?php echo $row['adopt_time']?></p>
+                <a id="rev" href="review.php?adopt_id=<?php echo $row['adopt_id']?>">
+                    <button type="button" class="btn1"><span>回访</span></button>
+                </a>
             </div>
         <?php }
         mysqli_close($conn); //关闭数据库
     } else {
         echo "<script>alert('请先登录！');location='html/login.html'</script>";
     } ?>
+
+    <script>
+        /*--------- Loader ----------*/
+        $(window).on("load", function () {
+            $('.loader').fadeOut(1500, function () {
+                $(this).remove();
+            });
+        });
+    </script>
 </body>
 </html>

@@ -39,4 +39,3 @@ if ($password == $re_password) {
 } else {
     echo "<script>alert('密码不一致！');location='html/register.html'</script>";
 } 
-?>
