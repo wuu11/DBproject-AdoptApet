@@ -1,0 +1,388 @@
+body {
+    place-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background:
+    radial-gradient(#93ccff 3px, transparent 4px),
+    radial-gradient(#9af4d9 3px, transparent 4px),
+    linear-gradient(#fff 4px, transparent 0),
+    linear-gradient(45deg, transparent 74px, transparent 75px, #a4a4a4 75px, #a4a4a4 76px, transparent 77px, transparent 109px),
+    linear-gradient(-45deg, transparent 75px, transparent 76px, #a4a4a4 76px, #a4a4a4 77px, transparent 78px, transparent 109px),
+    #fff;
+    background-size: 109px 109px, 109px 109px,100% 6px, 109px 109px, 109px 109px;
+    background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+    overflow: hidden;
+}
+
+.header {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    background: #fcfcd4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+}
+.header .logo {
+    color: #364954;
+    padding: 0 1rem;
+    text-decoration: none;
+    font-family: "Comic Sans MS";
+}
+
+.navbar ul{
+    display: flex;
+}
+.navbar ul li{
+    font-weight: bold;
+    width: 128px;
+    list-style: none;
+    text-align: center;
+}
+.navbar ul li a {
+    width: 128px;
+    line-height: 40px;
+    font-size: 1.3rem;
+    font-family: "Microsoft JhengHei";
+    color: #364954;
+    text-decoration: none;
+}
+.navbar ul li a:hover{
+    color: #99aebb;
+}
+
+.recordbox {
+    width: 100%;
+    height: calc(100vh);;
+    background: #cccccc7f;
+    overflow: hidden;
+    color: #364954;
+}
+
+#add,
+#delete {
+    width: 150px;
+    height: 60px;
+    position: relative;
+    cursor: pointer;
+    transition: all 1s;
+    border: 1px solid #364954;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 105px;
+    right: 20%;
+    z-index: 900;
+}
+#delete {
+    left: 20%;
+}
+#add .border,
+#delete .border {
+    stroke-dasharray: 60 255;
+    stroke-dashoffset: -255;
+    stroke-width: 8px;
+    stroke: #364954;
+    fill: transparent;
+    transition: all 1s;
+}
+#add .content,
+#delete .content {
+    width: 150px;
+    height: 60px;
+    position: absolute;
+    letter-spacing: 3px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 20px;
+    font-weight: 700;
+    top: 0;
+    pointer-events: none;
+    border-radius: 10px;
+    transition: all 1s;
+}
+#add .border:hover,
+#delete .border:hover {
+    stroke-width: 2px;
+    stroke-dashoffset: 0;
+    stroke-dasharray: 420;
+}
+#add:hover,
+#delete:hover {
+    border: none;
+}
+#add:hover .content,
+#delete:hover .content {
+    background: #eae1d7;
+    color: #8d734c;
+}
+#text-length {
+    width: 15%;
+    height: 50px;
+    text-align: right;
+    line-height: 40px;
+    position: absolute;
+    right: 8%;
+    bottom: 90px;
+}
+.recordbox .record {
+    width: 300%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+}
+.record div {
+    width: 400px;
+    height: 450px;
+    box-sizing: border-box;
+    position: relative;
+    position: absolute;
+    left: calc(100vw);
+    transition: all .5s;
+    transition-timing-function: ease-out;
+}
+@media screen and (min-device-width:1500px) {
+    .recordbox .record .textselected-1 {
+    left: 5%;
+    }
+}
+@media screen and (min-device-width:1600px) {
+    .recordbox .record .textselected-1 {
+    left: 7%;
+    }
+}
+@media screen and (min-device-width:1700px) {
+    .recordbox .record .textselected-1 {
+    left: 8%;
+    }
+}
+@media screen and (min-device-width:1800px) {
+    .recordbox .record .textselected-1 {
+    left: 9%;
+    }
+}
+@media screen and (min-device-width:1900px) {
+    .recordbox .record .textselected-1 {
+    left: 10%;
+    }
+}
+@media screen and (min-device-width:2000px) {
+    .recordbox .record .textselected-1 {
+    left: 11%;
+    }
+}
+.recordbox .record .textselected-3 {
+    left: 68.3%;
+}
+.recordbox .record .textselected-2 {
+    width: 500px;
+    height: 550px;
+}
+.recordbox .record div h2 {
+    position: absolute;
+    top: 15px;
+    text-align: center;
+    line-height: 30px;
+    width: 100%;
+    height: 30px;
+    z-index: 888;
+    font-size: 24px;
+}
+
+.recordbox .record .recordtime,
+.recordbox .record .recordnum {
+    width: 50%;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    position: absolute;
+    top: 85px;
+}
+.recordbox .record .recordtime {
+    left: 0;
+}
+.recordbox .record .recordnum {
+    right: 0;
+}
+.recordbox .record .page {
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    height: 80%;
+    text-align: center;
+    line-height: 400px;
+    font-size: 120px;
+    opacity: .2;
+    list-style-type: none;
+}
+.recordbox .record div textarea {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    outline: none;
+    opacity: 0.8;
+    padding: 125px 20px 0 20px;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 2.5;
+    text-indent: 2em;
+}
+.recordbox .next,
+.recordbox .prev {
+    width: 80px;
+    height: 120px;
+    position: absolute;
+    top: 340px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    z-index: 999;
+}
+.recordbox .next:hover path,
+.recordbox .prev:hover path {
+    fill: #fff;
+}
+.recordbox .next:hover,
+.recordbox .prev:hover {
+    background: rgba(26, 25, 25, 0.597);
+}
+.recordbox .next {
+    right: 0;
+}
+.recordbox .addbox {
+    width: 100%;
+    height: 100%;
+    background: rgba(55, 55, 55, .5);
+    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9998;
+    display: none;
+}
+.recordbox .addbox div {
+    width: 60%;
+    height: 500px;
+    background: rgb(255, 255, 255);
+    border-radius: 8px;
+    margin: 150px auto;
+    position: relative;
+}
+.recordbox .addbox div label {
+    position: absolute;
+    top: 45px;
+    left: 15%;
+    line-height: 20px;
+}
+.recordbox .addbox input[type='date'] {
+    width: 50%;
+    height: 50px;
+    background: #c0bebe5d;
+    outline: none;
+    padding-left: 15px;
+    box-sizing: border-box;
+    position: absolute;
+    left: 25%;
+    top: 30px;
+    border-radius: 8px;
+    text-align: center;
+}
+input[type=date]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+.recordbox .addbox div textarea {
+    width: 80%;
+    background: #c0bebe5d;
+    height: 300px;
+    outline: none;
+    border-radius: 8px;
+    resize: none;
+    position: absolute;
+    left: 10%;
+    top: 100px;
+    box-sizing: border-box;
+    padding: 15px;
+    line-height: 2;
+    font-size: 16px;
+}
+.recordbox .addbox .text-length {
+    width: 30%;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+    position: absolute;
+    bottom: 75px;
+    right: 12%;
+    color: #959393;
+}
+.recordbox .addbox button {
+    width: 15%;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 15px;
+    position: absolute;
+    bottom: 30px;
+}
+.recordbox .addbox .false {
+    right: 30%;
+}
+.recordbox .addbox .true {
+    left: 30%;
+}
+.recordbox .addbox button:hover {
+    background: #ccccccad;
+}
+.record div #noteDelbox {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    top: 8px;
+    z-index: 999;
+    cursor: pointer;
+    left: 87%;
+    opacity: 0;
+    transition: all .5s;
+    pointer-events: none;
+}
+#noteDel {
+    width: 100%;
+    height: 100%;
+}
+#noteDel:hover path {
+    fill: red;
+}
+.note #alter {
+    position: relative;
+    position: absolute;
+    width: 80px;
+    height: 30px;
+    top: 8px;
+    z-index: 999;
+    left: 5%;
+    transition: all .5s;
+}
+.note #alter #alterText {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    position: absolute;
+}
+.note #alter #saving {
+    width: 23px;
+    float: left;
+    height: 23px;
+    position: absolute;
+    left: 30px;
+    cursor: pointer;
+    top: 2px;
+}
+#alterText:hover path {
+    fill: red;
+}
+#saving:hover path {
+    fill: #19fa28;
+}
