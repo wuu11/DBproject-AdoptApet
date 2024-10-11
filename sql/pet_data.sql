@@ -8,31 +8,31 @@ insert into userinfo values (000001, '123456', 1, 1),
 commit;
 
 set AUTOCOMMIT = 0;
-insert into administrator values (1, 000001, 'Simon', 15512341234, 'Simon@petadmin.org'),
-(2, 000002, 'Alex', 15612341234, 'Alex@petadmin.org');
+insert into administrator values (1, 000001, '管理员小王', 15512341234, 'xiaowang@petadmin.org'),
+(2, 000002, '管理员小李', 15612341234, 'xiaoli@petadmin.org');
 commit;
 
 set AUTOCOMMIT = 0;
-insert into common_user values (1, 100001, 'Alice', 21, 'F', 13422225555, 'Alice@petuser.org', 'Guangdong,Shenzhen,Nanshan Liyuan'),
-(2, 100002, 'Bruce', 26, 'M', 13533336666, 'Bruce@petuser.org', 'Guangdong,Shenzhen,Nanshan Pingshan Village'),
-(3, 100003, 'Bob', 19, 'M', 17033336666, 'Bob@petuser.org', 'Guangdong,Shenzhen,Nanshan Xili'),
-(4, 100004, 'Cindy', 24, 'F', 18956563232, 'Cindy@petuser.org', 'Guangdong,Shenzhen,Luohu Dongmen');
+insert into common_user values (1, 100001, '小红', 21, 'F', 13422225555, 'xiaohong@petuser.org', '广东省深圳市南山区'),
+(2, 100002, '小明', 26, 'M', 13533336666, 'xiaoming@petuser.org', '广东省深圳市福田区'),
+(3, 100003, '小张', 19, 'M', 17033336666, 'xiaozhang@petuser.org', '广东省深圳市龙华区'),
+(4, 100004, '小蓝', 24, 'F', 18956563232, 'xiaolan@petuser.org', '广东省广州市越秀区');
 commit;
 
 set AUTOCOMMIT = 0;
-insert into variety values (1, 'Corgi', 'A kind of dog which has short legs and a fox-like head.'),
-(2, 'Teddy', 'A kind of dog which has curly hair and meek character.'),
-(3, 'Maine coon', 'A kind of cat which has long hair and strong physicue.'),
-(4, 'Ragdoll', 'A kind of cat which has big eyes,thick hair and soft body.');
+insert into variety values (1, 1, '柯基犬', '一种小型、短腿、长身的牧羊犬，以其出色的牧羊和看护能力著称，同时也是备受欢迎的玩赏犬和伴侣犬。'),
+(2, 1, '贵宾犬', '一种具有优雅、高贵与精致特性的小型犬种，智商高，易训练，拥有柔软、卷曲的毛发，有多种不同的毛色和体型。'),
+(3, 1, '缅因猫', '一种大体型长毛猫，体格强壮，被毛厚密，性情温顺，喜欢独处。'),
+(4, 1, '布偶猫', '一种体型和体重较大的宠物猫，毛发较长，身体柔软，多为三色或双色猫。');
 commit;
 
 set AUTOCOMMIT = 0;
-insert into pet values (1, 2, 1, 'Puppy', '2022-05-05', 1, 'M', 'brown', 'clever', 'good', 0, '2023-10-18 10:33:21'),
-(2, 4, 1, 'Polly', '2021-12-23', 2, 'F', 'white', 'gentle', 'good', 1, '2023-10-21 08:25:27'),
-(3, 1, 2, 'Taotao', '2023-08-31', 0, 'M', 'yellow', 'lively', 'good', 1, '2023-10-20 09:14:23'),
-(4, 1, 2, 'Candy', '2021-11-17', 2, 'F', 'yellow', 'aggressive', 'good', 0, '2023-10-18 10:33:22'),
-(5, 3, 1, 'Buddy', '2022-10-08', 1, 'M', 'grey', 'lazy', 'a little weak', 0, '2023-10-18 10:33:22'),
-(6, 2, 1, 'Lily', '2023-03-01', 0, 'F', 'brown', 'naughty', 'good', 0, '2023-10-18 10:33:22');
+insert into pet values (1, 2, 1, '豆豆', '2022-05-05', 2, 'M', '棕色', '聪明机灵', '良好', 'images/pet.png', 0, '2023-10-18 10:33:21'),
+(2, 4, 1, 'Polly', '2021-12-23', 3, 'F', '灰白相间', '温柔安静', '良好', 'images/pet.png', 1, '2023-10-21 08:25:27'),
+(3, 1, 2, '淘淘', '2023-08-31', 1, 'M', '黄白相间', '活泼淘气', '良好', 'images/pet.png', 1, '2023-10-20 09:14:23'),
+(4, 1, 2, 'Candy', '2021-11-17', 3, 'F', '黄色', '好斗', '良好', 'images/pet.png', 0, '2023-10-18 10:33:22'),
+(5, 3, 1, '胡巴', '2022-10-08', 2, 'M', '黑色', '慵懒', '体质差，易生病', 'images/pet.png', 0, '2023-10-18 10:33:22'),
+(6, 2, 1, 'Lily', '2023-03-01', 1, 'F', '白色', '调皮', '良好', 'images/pet.png', 0, '2023-10-18 10:33:22');
 commit;
 
 set AUTOCOMMIT = 0;
@@ -48,6 +48,6 @@ insert into adopt_record values (1, 1, '2023-10-20'),
 commit;
 
 set AUTOCOMMIT = 0;
-insert into review_record values (1, 1, 1, '2023-10-22', 'Pet gets along well with his owner.', '2023-10-22 17:01:46'),
-(2, 2, 1, '2023-10-23', 'Pet likes her owner very much.', '2023-10-23 17:48:03');
+insert into review_record values (1, 1, 1, '2023-10-22', '宠物与领养人相处良好。', '2023-10-22 17:01:46'),
+(2, 2, 1, '2023-10-23', '宠物还有一点怕生，仍在适应新环境中。', '2023-10-23 17:48:03');
 commit;

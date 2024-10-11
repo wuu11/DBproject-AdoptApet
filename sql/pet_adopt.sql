@@ -1,12 +1,12 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2023/10/19 15:52:38                          */
+/* Created on:     2024/8/6 18:06:09                            */
 /*==============================================================*/
 
-/*
-drop trigger if exists application_AFTER_APPROVE;
 
-drop trigger if exists record_BEFORE_INSERT;
+/*drop trigger application_AFTER_APPROVE;
+
+drop trigger record_BEFORE_INSERT;
 
 drop procedure if exists pet_applied_times;
 
@@ -39,9 +39,12 @@ alter table review_record
 
 alter table review_record 
    drop foreign key FK_REVIEW_R_CREATE_ADMINIST;
+   
+alter table variety 
+   drop foreign key FK_VARIETY_ADD_ADMINIST;
 
 drop
-table if exists View_1;
+table if exists viewAdoptInfo;
 
 drop index idx_variety_name on variety;*/
 
@@ -115,6 +118,7 @@ create table pet
    colour               varchar(15) not null  comment '',
    personality          varchar(50)  comment '',
    health               varchar(50)  comment '',
+   photo_path           varchar(100) not null  comment '',
    adopt_state          numeric(1,0) not null  comment '',
    last_update_time     datetime not null  comment '',
    primary key (pet_id)
@@ -140,7 +144,7 @@ create table review_record
 create table userInfo
 (
    account              numeric(6,0) not null  comment '',
-   password             varchar(20)  not null comment '',
+   password             varchar(20) not null  comment '',
    role                 numeric(1,0) not null  comment '',
    state                numeric(1,0) not null  comment '',
    primary key (account)
@@ -152,6 +156,7 @@ create table userInfo
 create table variety
 (
    variety_id           smallint not null auto_increment  comment '',
+   administrator_id     smallint not null  comment '',
    variety_name         varchar(40) not null  comment '',
    introduction         text  comment '',
    primary key (variety_id)
@@ -169,12 +174,10 @@ create index idx_variety_name on variety
 /* View: viewAdoptInfo                                          */
 /*==============================================================*/
 create VIEW  viewAdoptInfo
-as
-select adopt_record.adopt_id, common_user.full_name, common_user.phone, common_user.personal_address, 
-pet.pet_id, pet.nickname, variety.variety_name, adopt_record.adopt_time
+ as
+select adopt_record.adopt_id, common_user.full_name, common_user.phone, common_user.personal_address, pet.pet_id, pet.nickname, variety.variety_name, adopt_record.adopt_time
 from adopt_record, application, common_user, pet, variety
-where adopt_record.application_id = application.application_id and application.user_id = common_user.user_id 
-and application.pet_id = pet.pet_id and pet.variety_id = variety.variety_id;
+where adopt_record.application_id = application.application_id and application.user_id = common_user.user_id and application.pet_id = pet.pet_id and pet.variety_id = variety.variety_id;
 
 alter table administrator add constraint FK_ADMINIST_USER_ADMI_USERINFO foreign key (account)
       references userInfo (account) on delete restrict on update restrict;
@@ -204,6 +207,9 @@ alter table review_record add constraint FK_REVIEW_R_ADOPT_REV_ADOPT_RE foreign 
       references adopt_record (adopt_id) on delete restrict on update restrict;
 
 alter table review_record add constraint FK_REVIEW_R_CREATE_ADMINIST foreign key (administrator_id)
+      references administrator (administrator_id) on delete restrict on update restrict;
+      
+alter table variety add constraint FK_VARIETY_ADD_ADMINIST foreign key (administrator_id)
       references administrator (administrator_id) on delete restrict on update restrict;
 
 DELIMITER ;;
